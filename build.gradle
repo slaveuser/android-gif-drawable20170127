@@ -1,0 +1,29 @@
+buildscript {
+	repositories {
+		jcenter()
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'com.android.tools.build:gradle:2.2.3'
+		classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
+	}
+}
+
+ext {
+	versions = [
+			compileSdk: 25,
+			targetSdk : 25,
+			minSdk    : 9,
+			buildTools: '25.0.2',
+	]
+}
+
+subprojects {
+	tasks.withType(JavaCompile) {
+		options.compilerArgs << '-Xlint'
+	}
+	repositories {
+		jcenter()
+		mavenCentral()
+	}
+}
